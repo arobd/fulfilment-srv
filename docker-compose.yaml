@@ -1,9 +1,11 @@
 version: '3.3'
 
 services:
+
   build_image:
     build: .
     image: services/fulfilment:${VERSION} # use your own image name e.g. rancher/my-app:{VERSION}
+
   app_svc:
     container_name: fulfilment-service
     image: services/fulfilment:${VERSION}
@@ -24,7 +26,7 @@ services:
 
   mongo:
     container_name: mongo
-    image: mongo:4.1.8-xenial
+    image: mongo:4-bionic
     restart: always
     environment:
       - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
@@ -37,9 +39,21 @@ services:
     networks:
       - svc-network
 
+  redis:
+    container_name: redis
+    image: redis:6-buster
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - redis-data
+    networks:
+      - svc-network
+
 networks:
   svc-network:
     driver: bridge
 
 volumes:
   dbdata:
+  redis-data:
