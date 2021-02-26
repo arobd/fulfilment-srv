@@ -22,7 +22,7 @@ services:
       - 8084:8282
     networks:
       - svc-network
-    command: scripts/wait-for.sh mongo:27017 -- bash scripts/startup.sh
+    command: scripts/wait-for.sh mongo:27020 -- bash scripts/startup.sh
 
   mongo:
     container_name: mongo
