@@ -35,7 +35,8 @@ services:
     ports:
       - 27020:27017
     volumes:
-      - dbdata:/data/db
+      #- dbdata:/data/db # this is not working for some reason
+      - dbdata:/dump
     networks:
       - svc-network
 
