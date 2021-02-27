@@ -32,7 +32,7 @@ if [[ -n "$WEB_MEMORY" ]]; then
 fi
 
 export NODE_OPTIONS=${node_args}
-export DEBUG=formatWebApp:*
+export DEBUG=fulfilmentNodeServer:*
 
 echo "Starting app:"
 echo "> npm start"

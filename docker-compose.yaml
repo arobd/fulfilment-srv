@@ -9,7 +9,10 @@ services:
   app_svc:
     container_name: fulfilment-service
     image: services/fulfilment:${VERSION}
-    depends_on: [build_image]
+    depends_on:
+      - build_image
+      - mongo
+      - redis
     restart: unless-stopped
     env_file: .env
     environment:
@@ -22,7 +25,8 @@ services:
       - 8084:8282
     networks:
       - svc-network
-    command: scripts/wait-for.sh mongo:27020 -- bash scripts/startup.sh
+    command: sh -c 'scripts/startup.sh'
+    #command: sh -c 'scripts/wait-for.sh mongo:27020 -- bash scripts/startup.sh'
 
   mongo:
     container_name: mongo

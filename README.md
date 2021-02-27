@@ -1,12 +1,4 @@
-<div align="center">
-  <h1>
-    🦥 Simple NodeJS Scaffold 🦥
-  </h1>
-</div>
-
-<p align="center">
-  Simple enough service scaffolding in node and express; to get you started on your project immediately- with right folder structure and architecture practices in place 🤟🏼
-</p>
+# Fulfilment Service
 
 
 
